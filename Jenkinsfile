@@ -12,6 +12,12 @@ pipeline {
                sh 'mvn clean install'
           }
       }
+      stage ('Deploy to tomcat') {
+         steps {
+            sh 'sh deploy.sh'
+         }
+      }   
+    
    }  
    
 }
