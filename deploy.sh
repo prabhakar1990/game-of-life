@@ -6,3 +6,4 @@ cd /Users/pu20057981/Downloads/apache-tomcat-8.5.47/bin
 ./shutdown.sh
 sleep 5s
 ./startup.sh &
+sleep 5s
