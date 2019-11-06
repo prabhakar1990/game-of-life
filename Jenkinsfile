@@ -14,6 +14,7 @@ pipeline {
       }
       stage ('Deploy to tomcat') {
          steps {
+            sh 'chmod 755 deploy.sh'
             sh 'sh deploy.sh'
          }
       }   
