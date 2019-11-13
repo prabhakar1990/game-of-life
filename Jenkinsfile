@@ -13,12 +13,6 @@ pipeline {
                sh 'mvn clean install sonar:sonar'
           }
           }
-         stage ('sonar-anylysis') {
-          steps {
-             withSonarQubeEnv('Sonarqube') {
-               sh 'mvn clean install sonar:sonar'
-          }
-          }
       }
       stage ('Deploy to tomcat') {
          steps {
