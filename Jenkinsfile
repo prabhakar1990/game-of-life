@@ -9,7 +9,9 @@ pipeline {
       }
       stage ('maven build') {
           steps {
-               sh 'mvn clean install'
+             withSonarQubeEnv('scan') {
+               sh 'mvn clean install sonar:sonar'
+          }
           }
       }
       stage ('Deploy to tomcat') {
