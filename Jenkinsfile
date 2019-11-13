@@ -14,6 +14,14 @@ pipeline {
           }
           }
       }
+
+      stage ('Sonar-Anylysis') {
+          steps {
+             withSonarQubeEnv('Sonarqube') {
+               sh 'mvn clean install sonar:sonar'
+          }
+          }
+      }
       stage ('Deploy to tomcat') {
          steps {
             sh 'chmod 755 deploy.sh'
