@@ -15,7 +15,7 @@ pipeline {
           }
       }
 
-      stage ('Sonar-Anylysis') {
+      stage ('Sonar-Analysis') {
           steps {
              withSonarQubeEnv('Sonarqube') {
                sh 'mvn clean install sonar:sonar'
