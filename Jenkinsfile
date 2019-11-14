@@ -7,7 +7,7 @@ pipeline {
             git url: 'https://github.com/prabhakar1990/game-of-life.git'
          }
       }
-      stage ('Maven- Code Build'') {
+      stage ('Maven- Code Build') {
           steps {
              withSonarQubeEnv('Sonarqube') {
                sh 'mvn clean install sonar:sonar'
