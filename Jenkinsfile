@@ -23,7 +23,7 @@ pipeline {
           }
       }
     
-   stage('Publish') {
+     stage('Publish') {
      nexusPublisher nexusInstanceId: ‘nexus', nexusRepositoryId: ‘maven-releases’, packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/Users/Shared/Jenkins/Home/workspace/GAMEOFLIFE_using _tomcat_container_SQ/gameoflife-web/target/gameoflife.war']], mavenCoordinate: [artifactId: 'jgameoflife-war', groupId: 'com.wakaleo.gameoflife', packaging: 'war', version: ‘3.00’]]]
    }
       stage ('Deploy to tomcat') {
