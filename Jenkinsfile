@@ -23,9 +23,7 @@ pipeline {
           }
       }
     
-      stage('Nexus- Upload Application Binaries '){
-           
-      }
+     
       stage ('Deploy to tomcat') {
          steps {
             sh 'chmod 755 deploy.sh'
