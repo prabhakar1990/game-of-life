@@ -2,12 +2,12 @@ pipeline {
    agent any
    tools { maven 'MAVEN_HOME' }
    stages {
-      stage('Git Clone from Repo') {
+      stage('Github-Code Checkout') {
          steps {
             git url: 'https://github.com/prabhakar1990/game-of-life.git'
          }
       }
-      stage ('Maven build') {
+      stage ('Maven- Code Build'') {
           steps {
              withSonarQubeEnv('Sonarqube') {
                sh 'mvn clean install sonar:sonar'
@@ -15,7 +15,7 @@ pipeline {
           }
       }
 
-      stage ('Sonar-Analysis') {
+      stage ('Sonarqube- Code Quality Analysis') {
           steps {
              withSonarQubeEnv('Sonarqube') {
                sh 'mvn clean install sonar:sonar'
