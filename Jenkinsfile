@@ -37,7 +37,7 @@ pipeline {
             artifactId('gameoflife')
             type('war')
             classifier('debug')
-            file('nexus-artifact-uploader.war')
+            file('gamoflife.war')
         }
          
       }
