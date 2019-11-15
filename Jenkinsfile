@@ -22,12 +22,6 @@ pipeline {
           }
           }
       }
-     stage('Nexus- Upload Application Binaries '){
-           steps{
-        mvn deploy -Dartifact_url=http://127.0.0.1:9081 --batch-mode  -Dhttps.protocols=TLSv1.2
-       
-         }
-   }
      
       stage ('Deploy to tomcat') {
          steps {
