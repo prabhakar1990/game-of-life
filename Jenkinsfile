@@ -22,6 +22,13 @@ pipeline {
           }
           }
       }
+      stage('Nexus- punlish war){
+            steps{
+               nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/Users/Share/Jenkins/Home/workspace/GAMEOFLIFE_using _tomcat_container_SQ/gameoflife-web/target/gameoflife.war']], mavenCoordinate: [artifactId: 'gameoflife', groupId: 'com.wakaleo.gameoflife', packaging: 'war', version: '5.0']]]
+               
+            }
+            }
+               
      stage ('Deploy to tomcat') {
          steps {
             sh 'chmod 755 deploy.sh'
