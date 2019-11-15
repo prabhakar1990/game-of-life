@@ -23,22 +23,25 @@ pipeline {
           }
       }
       
-      Stage 'Nexus Deploy'{
-         steps {
-     nexusArtifactUploader
-        artifactId: 'gameoflife',
-        file: 'server/jetty-project/target/jetty-project-0.0.1-SNAPSHOT.war',
-        groupId: 'com.wakaleo.gameoflife',
-        type:'war',
-        nexusPassword: 'admin',
-        nexusUrl: 'http://127.0.0.1:9081',
-        nexusUser: 'admin',
-        nexusVersion: 'nexus3',
-        protocol: 'http',
-        repository: 'maven-snapshots',
-        version: '0.0.1-SNAPSHOT'
+      stage('NexusArtifactUploaderJob') {
+    steps {
+      nexusArtifactUploader {
+        nexusVersion('nexus3')
+        protocol('http')
+        nexusUrl('localhost:9081')
+        groupId('com.wakaleo.gameoflife')
+        version('2.4')
+        repository('NexusArtifactUploader')
+        credentialsId('44620c50-1589-4617-a677-7563985e46e1')
+        artifact {
+            artifactId('gameoflife')
+            type('war')
+            classifier('debug')
+            file('nexus-artifact-uploader.war')
+        }
+         
       }
-      }
+    }
      
       stage ('Deploy to tomcat') {
          steps {
