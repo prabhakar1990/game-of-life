@@ -24,7 +24,7 @@ pipeline {
       }
       stage('Nexus- Upload Application Binaries'){
             steps {
-            nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/Users/Shared/Jenkins/Home/workspace/gameoflifefrestyle_pipeline/gameoflife-web/target/gameoflife.war']], mavenCoordinate: [artifactId: 'gameoflife', groupId: 'com.wakaleo.gameoflife', packaging: 'war', version: '11.0']]]  
+            nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/Users/Shared/Jenkins/Home/workspace/gameoflifefrestyle_pipeline/gameoflife-web/target/gameoflife.war']], mavenCoordinate: [artifactId: 'gameoflife', groupId: 'com.wakaleo.gameoflife', packaging: 'war', version: '12.0']]]  
                
             }
       }
