@@ -22,27 +22,7 @@ pipeline {
           }
           }
       }
-      
-      stage('NexusArtifactUploaderJob') {
-    steps {
-      nexusArtifactUploader {
-        nexusVersion('nexus3')
-        protocol('http')
-        nexusUrl('localhost:9081')
-        groupId('com.wakaleo.gameoflife')
-        version('2.4')
-        repository('NexusArtifactUploader')
-        credentialsId('44620c50-1589-4617-a677-7563985e46e1')
-        artifact {
-            artifactId('gameoflife')
-            type('war')
-            classifier('debug')
-        }
-         
-      }
-    }
-     
-      stage ('Deploy to tomcat') {
+     stage ('Deploy to tomcat') {
          steps {
             sh 'chmod 755 deploy.sh'
             sh 'sh deploy.sh'
@@ -52,4 +32,4 @@ pipeline {
    }  
    
 }
-}
+
