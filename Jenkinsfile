@@ -22,13 +22,7 @@ pipeline {
           }
           }
       }
-      stage('Nexus- Upload Application Binaries'){
-            steps{
-               nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/Users/Share/Jenkins/Home/workspace/latestpipeline/gameoflife-web/target/gameoflife.war']], mavenCoordinate: [artifactId: 'gameoflife', groupId: 'com.wakaleo.gameoflife', packaging: 'war', version: '5.0']]]
-               
-            }
-      }
-               
+      
       stage ('Deploy to tomcat') {
          steps {
             sh 'chmod 755 deploy.sh'
