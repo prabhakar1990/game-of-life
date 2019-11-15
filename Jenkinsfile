@@ -37,7 +37,6 @@ pipeline {
             artifactId('gameoflife')
             type('war')
             classifier('debug')
-            file('gamoflife.war')
         }
          
       }
