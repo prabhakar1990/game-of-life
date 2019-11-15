@@ -23,13 +23,9 @@ pipeline {
           }
       }
      stage('Nexus- Upload Application Binaries '){
-          
-         steps{
-      
-        sh '''
-         PATH=${JAVA_HOME}/bin:${MAVEN_HOME}/bin:${PATH}
+           steps{
         mvn deploy -Dartifact_url=http://127.0.0.1:9081 --batch-mode  -Dhttps.protocols=TLSv1.2
-        '''
+       
          }
    }
      
